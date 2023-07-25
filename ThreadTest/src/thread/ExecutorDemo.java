@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ExecutorDemo {
     /**
-     * 线程池都实现了ExecutorService接口，该接口定义了线程池需要实现的接口，如果submit，execute，shutdown等。
+     * 线程池都实现了ExecutorService接口，该接口定义了线程池需要实现的接口，如submit，execute，shutdown等。
      * ExecutorService的生命周期包括3种状态：运行、关闭、终止。创建后便进入运行状态，调用shutdown()之后，便渐入关闭状态，
      * 此时意味着ExecutorServie不再接受新的任务，但它还在执行已经提交了的任务。当所有已经提交了的任务都执行完后，就变成终止状态。
      */

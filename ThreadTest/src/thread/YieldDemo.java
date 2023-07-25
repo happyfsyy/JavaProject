@@ -91,7 +91,7 @@ public class YieldDemo {
             super(name);
         }
         public synchronized void run() {
-            for(int i=0;i<5;i++) {
+            for(int i=0;i<10;i++) {
                 System.out.printf("%s,优先级为：%d -->i=%d\n", getName(),getPriority(),i);
                 if(i==2) {
                     Thread.yield();
@@ -110,8 +110,8 @@ public class YieldDemo {
 
     public static void main(String[] args) {
 //		waitAndNotifyAll();
-//		joinDemo();
-        yieldDemo();
+		joinDemo();
+//        yieldDemo();
     }
 
 }

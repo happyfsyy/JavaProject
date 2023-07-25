@@ -28,14 +28,13 @@ public class FutureDemo {
     }
     //向线程池中提交Runnable对象
     private static void futureWithRunnable() throws InterruptedException,ExecutionException {
-        Future<?> resultFuture=mExecutor.submit(new Runnable() {
-            @Override
-            public void run() {
-                fib(40);
-            }
+        Future<?> resultFuture=mExecutor.submit(()-> {
+            System.out.println("Runnable的run()方法之中");
+            fib(40);
         });
         //Future中的get()函数会获取结果，如果任务未完成，会阻塞等待，直到完成。
         //提交了Runnable，在run()函数中直接计算，该函数无返回值，因此get()得到的值为null
+        //哪怕这里是null，但实际也是等待fib(40)执行完之后，才会执行下一行代码。（改成fib(50)可以看出来）
         System.out.println("使用Runnable提交的Future的结果是："+resultFuture.get());
     }
 
@@ -71,8 +70,8 @@ public class FutureDemo {
     public static void main(String[] args) {
         try {
             futureWithRunnable();
-            futureWithCallabe();
-            futureTask();
+//            futureWithCallabe();
+//            futureTask();
         }catch (Exception e) {
 
         }
