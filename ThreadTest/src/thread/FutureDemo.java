@@ -47,7 +47,9 @@ public class FutureDemo {
             }
         });
         //get()方法的英文解释：如有必要，就等待计算完成，查询它的结果
+        long beforeTime=System.currentTimeMillis();
         System.out.println("使用Callable提交的Future的结果是："+future2.get());
+
     }
 
 
